@@ -1,10 +1,13 @@
 body {
   margin: 0;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
   background-color: #e7f6ff;
+}
+* {
+  font-family: 'Inter', sans-serif;
 }
 
 .wrapper {
@@ -26,16 +29,24 @@ header {
   }
 }
 
-.content {
-  padding: 60px;
-}
-
 .card {
   border: 1px solid #f8e8f8;
   padding: 30px;
   width: 220px;
 
   border-radius: 40px;
+
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.07);
+    transform: translateY(-5px);
+  }
+
+  .favorite {
+    position: absolute;
+    cursor: pointer;
+  }
 
   span {
     font-size: 13px;
@@ -59,4 +70,108 @@ header {
   height: 32px;
   width: 32px;
   cursor: pointer;
+}
+.search-block {
+  border: 1px solid #f3f3f3;
+  border-radius: 15px;
+  padding: 0 15px;
+  input {
+    border: 0;
+    padding: 13px;
+    font-size: 16px;
+    width: 200px;
+  }
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.drawer {
+  position: absolute;
+  width: 385px;
+  height: 100%;
+  right: 0;
+  background: #ffffff;
+  box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    margin: 0;
+  }
+  .items {
+    overflow: auto;
+    margin-bottom: 40px;
+  }
+}
+
+.cartItem {
+  border: 1px solid #f3f3f3;
+  border-radius: 20px;
+  p {
+    font-size: 16px;
+  }
+
+  b {
+    font-size: 14px;
+  }
+  .removeBtn {
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.cartTotalBlock {
+  margin-bottom: 25px !important;
+  li {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 20px;
+
+    div {
+      flex: 1;
+      height: 1px;
+      position: relative;
+      top: -4px;
+      margin: 0 7px;
+      border-bottom: 1px dashed #dfdfdf;
+    }
+  }
+}
+.greenButton {
+  position: relative;
+  width: 100%;
+  height: 55px;
+  background: #9dd458;
+  border-radius: 18px;
+  border: 0;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease-in-out;
+  &:hover {
+    background: lighten(#9dd458, 5%);
+    img {
+      transform: translateX(5px);
+    }
+  }
+  &:active {
+    background: darken(#9dd458, 5%);
+  }
+
+  img {
+    position: absolute;
+    right: 35px;
+    top: 21px;
+    transition: transform 0.15s ease-in-out;
+  }
 }
