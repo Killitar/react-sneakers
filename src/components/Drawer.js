@@ -1,9 +1,18 @@
-function Drawer() {
+import useLockBodyScroll from './lock-body-scroll';
+
+function Drawer(props) {
+  useLockBodyScroll();
   return (
-    <div hidden className="overlay">
+    <div className="overlay">
       <div className="drawer d-flex flex-column p-30">
         <h2 className="mb-30 d-flex justify-between">
-          Корзина <img className="removeBtn cu-p" src="img/btn-remove.svg" alt="Remove" />
+          Корзина{' '}
+          <img
+            className="removeBtn cu-p"
+            src="img/btn-remove.svg"
+            alt="Close"
+            onClick={props.onClose}
+          />
         </h2>
 
         <div className="items flex">
